@@ -4,19 +4,19 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'make'
+                echo 'make'
                 slackSend color: 'good', message: 'Message from Jenkins Pipeline'
             }
         }
         stage('Test'){
             steps {
-                sh 'make check'
+                echo 'make check'
             }
         }
         stage('Deploy') {
             steps {
                 input 'Do you approve deployment?'
-                sh 'make publish'
+                echo 'make publish'
             }
         }
     }
