@@ -1,2 +1,2 @@
 # jenkins-test
-## Just a typical README.md file
+## A typical README.md file
