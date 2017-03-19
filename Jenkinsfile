@@ -14,8 +14,8 @@ pipeline {
             }
         }
         stage('Deploy') {
-            input 'Do you approve deployment?'
             steps {
+                input 'Do you approve deployment?'
                 sh 'make publish'
             }
         }
