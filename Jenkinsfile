@@ -16,6 +16,9 @@ pipeline {
       stage('Deploy Test') {
           when {
              branch 'master'
+             expression {
+               currentBuild.result == null || currentBuild.result == 'SUCCESS'
+             }
           }
           steps {
               echo 'make publish'
@@ -24,6 +27,9 @@ pipeline {
       stage('Deploy Staging') {
           when {
              branch 'prod'
+             expression {
+               currentBuild.result == null || currentBuild.result == 'SUCCESS'
+             }
           }
           steps {
               echo 'make publish'
@@ -40,6 +46,9 @@ pipeline {
       stage('Deploy Production') {
           when {
              branch 'prod'
+             expression {
+               currentBuild.result == null || currentBuild.result == 'SUCCESS'
+             }
           }
           steps {
               echo 'make publish'
